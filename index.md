@@ -115,7 +115,7 @@ This structure provides a flexible interface for implementing scheduling and res
 
 # Creating a PMCSched plugin
 
-To illustrate the process of plugin creation, let us walk through a simple example and its associated code. First, we must implement the predefined `sched_ops_t` interface (described in the previous section) in a separate `.c` source file. We begin by developing our new plugin by creating a new file named `example_example.c`. As explained, its functions will handle particular scheduling events. The minimal required callbacks, along with a policy ID, optional flags, and string description, are defined as follows:
+To illustrate the process of plugin creation, let us walk through a simple example and its associated code. First, we must implement the predefined `sched_ops_t` interface (described in the previous section) in a separate `.c` source file. We begin by developing our new plugin by creating a new file named `example_plugin.c`. As explained, its functions will handle particular scheduling events. The minimal required callbacks, along with a policy ID, optional flags, and string description, are defined as follows:
 
 ```c
 sched_ops_t thesis_plugin = 
@@ -171,7 +171,7 @@ static void
 }
 ```
 
-Registering our new plugin in PMCSched requires declaring the plugin's descriptor in the framework's main header file, `pmcsched.h`. Since we implement the functions in a separate file (`example_example.c`), the descriptor must be declared as `extern`:
+Registering our new plugin in PMCSched requires declaring the plugin's descriptor in the framework's main header file, `pmcsched.h`. Since we implement the functions in a separate file (`example_plugin.c`), the descriptor must be declared as `extern`:
 
 ```c
 extern struct sched_ops thesis_plugin;
